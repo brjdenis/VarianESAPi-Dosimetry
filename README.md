@@ -14,9 +14,9 @@ Varian ESAPI script for evaluating dose objectives. Dosimetry can be used in sev
 To use the script, you must compile it on your system. You should be able to open the project with Visual Studio 2019 Community Edition. Open the .sln file in Dosimetry folder. 
 The script was developed for Eclipse version 15.6. It may not work with other versions of Eclipse or Varian ESAPI.
 
-1. You will need to collect or restore NuGet package for compilation: System.Data.SQLite.Core. 
+1. You will need to restore NuGet package for compilation: System.Data.SQLite.Core. Right click the solution -> Restore NuGet packages.
 2. Don't forget the references to Varian dlls.
-3. Compile for x64 and (probably) for .NET v4.5.
+3. Compile as Release for x64.
 4. Create a SQLite database file. Edit the path to it in 'Exchange_path.db'.
 5. In Eclipse you will have to approve the script because it is write-enabled.
 
