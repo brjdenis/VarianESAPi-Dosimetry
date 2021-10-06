@@ -1,0 +1,55 @@
+﻿<Window x:Class="Dosimetry.AdminSQL"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Dosimetry"
+             mc:Ignorable="d" Title="SQL Admin"
+             Height="377" Width="650">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}"/>
+        <Style TargetType="{x:Type Label}"/>
+        <Style TargetType="{x:Type Border}"/>
+        <Style TargetType="{x:Type TextBox}"/>
+        <Style TargetType="{x:Type ListView}"/>
+        <Style TargetType="{x:Type ListViewItem}"/>
+        <Style TargetType="{x:Type GridViewColumnHeader}"/>
+        <Style TargetType="{x:Type TextBlock}"/>
+        <Style TargetType="{x:Type ScrollBar}"/>
+    </Window.Resources>
+    <Grid>
+        <TextBox x:Name="PatientIDSearchTextBox" HorizontalAlignment="Left" Height="23" Margin="76,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="PatientID:" HorizontalAlignment="Left" Margin="10,10,0,0" Height="30" VerticalAlignment="Top"/>
+        <Button Content="Find" HorizontalAlignment="Left" Margin="220,10,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click_1"/>
+        <!--<ListView x:Name="ListView1"  HorizontalAlignment="Left" Height="150" Margin="10,55,0,0" VerticalAlignment="Top" Width="490">
+        </ListView>-->
+
+        <DataGrid x:Name="DataGrid" Margin="0,55,0,0" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False" VerticalAlignment="Top" Height="150" Width="600" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="PatientID" Binding="{Binding Path=patientID}"  Width="0.2*"/>
+                <DataGridTextColumn Header="Table" Binding="{Binding Path=tablename}"  Width="0.2*"/>
+                <DataGridTextColumn Header="DateTime" Binding="{Binding Path=datetime}"  Width="0.2*"/>
+                <DataGridTextColumn Header="LastSaver" Binding="{Binding Path=lastsaver}" Width="0.2*"/>
+                <DataGridTextColumn Header="Norm." Binding="{Binding Path=normalization}" Width="0.2*"/>
+            </DataGrid.Columns>
+            <DataGrid.CellStyle>
+                <Style TargetType="DataGridCell">
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                            <Setter Property="Foreground" Value="Black"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.CellStyle>
+        </DataGrid>
+        
+        <Label Content="Old ID:" HorizontalAlignment="Left" Margin="16,218,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxOldID" HorizontalAlignment="Left" Height="23" Margin="76,221,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Label Content="New ID:" HorizontalAlignment="Left" Margin="16,249,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="TextBoxNewID" HorizontalAlignment="Left" Height="23" Margin="76,252,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Replace ID" HorizontalAlignment="Left" Margin="16,288,0,0" VerticalAlignment="Top" Width="75" Height="30" Click="Button_Click"/>
+        <Label x:Name="SuccesLabel" Content="" HorizontalAlignment="Left" Margin="106,290,0,0" VerticalAlignment="Top" Width="150"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,28 @@
+﻿<Window x:Class="Dosimetry.PlanSumDialogBox"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dosimetry"
+        mc:Ignorable="d"
+        Title="PlanSumDialog" Height="206.136" Width="467.557">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}"/>
+        <Style TargetType="{x:Type Label}"/>
+        <Style TargetType="{x:Type Border}"/>
+        <Style TargetType="{x:Type CheckBox}"/>
+        <Style TargetType="{x:Type DataGrid}"/>
+        <Style TargetType="{x:Type ToolTip}"/>
+        <Style TargetType="{x:Type TextBlock}"/>
+        <Style TargetType="{x:Type StackPanel}"/>
+        <Style TargetType="{x:Type ScrollBar}"/>
+    </Window.Resources>
+    
+    <Grid>
+        <Button Content="OK" HorizontalAlignment="Left" Margin="75,124,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click" Height="25"/>
+        <Button Content="Cancel" HorizontalAlignment="Left" Margin="271,124,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click_1" Height="25"/>
+        <ComboBox Name="comboBox1" HorizontalAlignment="Left" Margin="163,70,0,0" VerticalAlignment="Top" Width="120" RenderTransformOrigin="0.51,0.508" Height="25"/>
+        <Label Content="No plan is active. If you wish, you can run the script on PlanSum. Pick one:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

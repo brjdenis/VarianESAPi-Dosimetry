@@ -1,0 +1,651 @@
+﻿<Window x:Class="Dosimetry.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Dosimetry"
+        mc:Ignorable="d"
+        Height="800" Width="1500" Background="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}">
+
+    <Window.Resources>
+        <Style x:Key="ColumnElementStyle" TargetType="TextBlock">
+            <Setter Property="Margin" Value="10,0,10,0" />
+        </Style>
+        <Style x:Key="ColumnElementStyle2" TargetType="ComboBox">
+            <Setter Property="Margin" Value="10,0,10,0" />
+        </Style>
+
+        <Style x:Key="ComboBoxDropdownStyle" TargetType="ComboBox">
+            <Setter Property="IsDropDownOpen" Value="True" />
+        </Style>
+
+        <Style x:Key="DataGridContentCellCentering" TargetType="DataGridCell">
+            <Style.Resources>
+                <Style TargetType="ContentPresenter">
+                    <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+            </Style.Resources>
+            <Style.Triggers>
+                <Trigger Property="IsSelected" Value="True">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="Foreground" Value="Black"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+
+        <Style TargetType="{x:Type Button}"/>
+        <Style TargetType="{x:Type Label}"/>
+        <Style TargetType="{x:Type Border}"/>
+        <Style TargetType="{x:Type CheckBox}"/>
+        <Style TargetType="{x:Type DataGrid}"/>
+        <Style TargetType="{x:Type ToolTip}"/>
+        <Style TargetType="{x:Type TextBlock}"/>
+        <Style TargetType="{x:Type StackPanel}"/>
+        <Style TargetType="{x:Type GroupBox}"/>
+        <Style TargetType="{x:Type ScrollBar}"/>
+        <Style TargetType="{x:Type TabControl}"/>
+        <Style TargetType="{x:Type TabItem}"/>
+        <Style TargetType="{x:Type TextBox}"/>
+
+    </Window.Resources>
+
+
+
+    <ScrollViewer VerticalScrollBarVisibility="Disabled" HorizontalScrollBarVisibility="Auto">
+        <Grid>
+            <TabControl x:Name="TabControlDosimetry" TabStripPlacement="Bottom" Background="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}" MaxWidth="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualWidth}">
+                <TabItem Header="General dosimetry" Height="40" Width="120">
+                    <Grid>
+                        <Menu Height="Auto" VerticalAlignment="Top" VerticalContentAlignment="Center">
+                            <MenuItem Header="Settings">
+                                <MenuItem Header="_Protocols..." Click="MenuItemProtocols_Click"></MenuItem>
+                                <MenuItem Header="_Protocol groups..." Click="MenuItemProtocolGroups_Click"></MenuItem>
+                                <MenuItem Header="_Structure mapping..." Click="MenuItemStructureMapping_Click"></MenuItem>
+                                <MenuItem Header="_Machine settings..." Click="MenuItemMachineSettings_Click"></MenuItem>
+                            </MenuItem>
+                            <MenuItem Header="Help">
+                                <MenuItem Header="_Open help" Click="Button_Click_6"></MenuItem>
+                            </MenuItem>
+                        </Menu>
+                        <Grid Margin="10,32,0,10" ShowGridLines="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Label x:Name="DosimetryPlanLabel" Grid.Column="0" Content="Plan: " HorizontalAlignment="Left" VerticalAlignment="Center"/>
+
+                            <Grid Margin="0,0,10,0" Grid.Column="1" HorizontalAlignment="Right">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Content="Select protocol:" HorizontalAlignment="Left" VerticalAlignment="Center" Height="30" Margin="0,0,10,0"/>
+                                <ComboBox x:Name="DosimetryComboBox1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="30" Margin="0,0,10,0" MaxDropDownHeight="600"/>
+                                <ComboBox x:Name="DosimetryComboBox2" Grid.Column="2" HorizontalAlignment="Left"  VerticalAlignment="Center" VerticalContentAlignment="Center" Width="150" Height="30" Margin="0,0,10,0" MaxDropDownHeight="600"/>
+                                <Button Grid.Column="3" Content="?" HorizontalAlignment="Left" VerticalAlignment="Center" Width="30" Margin="0,0,10,0" Height="30" Click="Button_Click_1"/>
+                                <Button Grid.Column="4" Content="Close" HorizontalAlignment="Left" VerticalAlignment="Center" Width="80" Margin="0,0,10,0" Height="30" Click="Button_Click"/>
+                            </Grid>
+                        </Grid>
+                        <GroupBox x:Name="GroupBoxWarnings" Margin="10,65,0,0" Grid.ColumnSpan="2" Header="Warnings" HorizontalAlignment="Left" VerticalAlignment="Top" Height="Auto" Width="Auto">
+                            <Grid HorizontalAlignment="Left" VerticalAlignment="Center" Height="Auto" Width="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Content="Missing organs:" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                                <Border BorderBrush="Black" CornerRadius="5" BorderThickness="1" Grid.Column="1" HorizontalAlignment="Left" Height="26"  VerticalAlignment="Center" Width="Auto" Margin="0,0,10,0" Background="FloralWhite">
+                                    <Label x:Name="LabelMissingStructures" Content="99" HorizontalAlignment="Left" VerticalAlignment="Center" ToolTipService.ShowDuration="1000000"/>
+                                </Border>
+                                <Label Grid.Column="2" Content="Incomplete dose coverage:" HorizontalAlignment="Left" VerticalAlignment="Center"  Width="Auto"/>
+                                <Border x:Name="BorderDoseCover" BorderBrush="Black" CornerRadius="5" BorderThickness="1" Grid.Column="3" HorizontalAlignment="Left" Height="26" VerticalAlignment="Center" Width="Auto" Margin="0,0,10,0" Background="FloralWhite">
+                                    <Label x:Name="LabelDoseCover"  Content="99" HorizontalAlignment="Left" VerticalAlignment="Center" ToolTipService.ShowDuration="1000000"/>
+                                </Border>
+                            </Grid>
+                        </GroupBox>
+
+                        <Grid Margin="10,120,10,20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Orientation="Horizontal">
+                                <Label Content="100 % = " HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                                <TextBox x:Name="TextBoxNormalization" Text="" Background="AliceBlue" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="OnTextChanged"></TextBox>
+                                <Label Content="cGy" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                                <Button x:Name="ButtonNormalization" Content="" Height="20" Width="50" Click="ButtonNormalization_Click"></Button>
+                            </StackPanel>
+                        </Grid>
+
+                        <Grid Margin="10,150,10,20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <DataGrid x:Name="DataGridOrgans1" IsReadOnly="True" Grid.Column="0" HorizontalAlignment="Stretch" MaxHeight="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualHeight}"  VerticalAlignment="Top" Width="Auto" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <!--<DataGridTextColumn Header="Organ" Binding="{Binding Path=Organ}"/>-->
+                                    <DataGridTextColumn Header="Structure" Width="110" Binding="{Binding Path=Structure}" ElementStyle="{StaticResource ColumnElementStyle}"/>
+                                    <DataGridTextColumn Header="Goal" Width="130" Binding="{Binding Path=Objective}" ElementStyle="{StaticResource ColumnElementStyle}"/>
+                                    <DataGridTextColumn Header="Value" Width="60" Binding="{Binding Path=Value}" ElementStyle="{StaticResource ColumnElementStyle}" FontWeight="Bold"/>
+                                    <DataGridTextColumn Header="Comment" Width="100" Binding="{Binding Path=Comment}" ElementStyle="{StaticResource ColumnElementStyle}" >
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell">
+                                                <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                                <Setter Property="ToolTipService.ShowDuration" Value="1000000"></Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                        <Setter Property="Foreground" Value="Black"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTemplateColumn Width="50" Header="OK?">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Path=Passed}" Foreground="{Binding Path=PassedColor}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <!--<DataGridTextColumn Header="OK?" Binding="{Binding Path=Passed}" Width="50"/>-->
+                                </DataGrid.Columns>
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Setter Property="Foreground" Value="Black"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.GroupStyle>
+                                    <GroupStyle>
+                                        <GroupStyle.ContainerStyle>
+                                            <Style TargetType="{x:Type GroupItem}">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                            <StackPanel>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="{Binding Name}" Margin="10,5,5,5" Background="Yellow" FontWeight="Bold"/>
+                                                                </StackPanel>
+                                                                <ItemsPresenter />
+                                                            </StackPanel>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </GroupStyle.ContainerStyle>
+                                    </GroupStyle>
+                                </DataGrid.GroupStyle>
+                            </DataGrid>
+                            <DataGrid x:Name="DataGridOrgans2" IsReadOnly="True" Margin="20,0,0,0" Grid.Column="1" HorizontalAlignment="Stretch" MaxHeight="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualHeight}" VerticalAlignment="Top" Width="Auto" AutoGenerateColumns="False">
+                                <DataGrid.Columns>
+                                    <!--<DataGridTextColumn Header="Organ" Binding="{Binding Path=Organ}"/>-->
+                                    <DataGridTextColumn Header="Structure" Width="110" Binding="{Binding Path=Structure}" ElementStyle="{StaticResource ColumnElementStyle}"/>
+                                    <DataGridTextColumn Header="Goal" Width="130" Binding="{Binding Path=Objective}" ElementStyle="{StaticResource ColumnElementStyle}"/>
+                                    <DataGridTextColumn Header="Value" Width="60" Binding="{Binding Path=Value}" ElementStyle="{StaticResource ColumnElementStyle}" FontWeight="Bold"/>
+                                    <DataGridTextColumn Header="Comment"  Width="100" Binding="{Binding Path=Comment}" ElementStyle="{StaticResource ColumnElementStyle}">
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell">
+                                                <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                                <Setter Property="ToolTipService.ShowDuration" Value="1000000"></Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                        <Setter Property="Foreground" Value="Black"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+                                    <DataGridTemplateColumn Width="50" Header="OK?">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Path=Passed}" Foreground="{Binding Path=PassedColor}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+                                    <!--<DataGridTextColumn Header="OK?" Binding="{Binding Path=Passed}" Width="50"/>-->
+                                </DataGrid.Columns>
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Setter Property="Foreground" Value="Black"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.GroupStyle>
+                                    <GroupStyle>
+                                        <GroupStyle.ContainerStyle>
+                                            <Style TargetType="{x:Type GroupItem}">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                            <StackPanel>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="{Binding Name}" Margin="10,5,5,5" Background="Yellow" FontWeight="Bold"/>
+                                                                </StackPanel>
+                                                                <ItemsPresenter />
+                                                            </StackPanel>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </GroupStyle.ContainerStyle>
+                                    </GroupStyle>
+                                </DataGrid.GroupStyle>
+                            </DataGrid>
+
+                            <Grid Grid.Column="2"  Margin="20,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualHeight}" Width="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="460"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <DataGrid x:Name="DataGridPTVs1" Grid.Column="0" Grid.Row="0" IsReadOnly="False" CanUserAddRows="False" CanUserDeleteRows="False" VerticalAlignment="Top" Height="Auto" MaxHeight="200" AutoGenerateColumns="False" Margin="0,0,0,10">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn IsReadOnly="True"  Width="0.25*" Header="Structure" Binding="{Binding Path=Structure}" ElementStyle="{StaticResource ColumnElementStyle}"/>
+                                        <DataGridTextColumn Width="0.25*" Header="Total dose [cGy]" Binding="{Binding Path=Dose}" ElementStyle="{StaticResource ColumnElementStyle}"/>
+                                        <DataGridComboBoxColumn Width="0.25*" x:Name="DataGridPTVs1Protocol" Header="Target from protocol" SelectedValueBinding="{Binding StructureFromProtocol, Mode=TwoWay}" DisplayMemberPath="{Binding StructureFromProtocol}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+                                        <DataGridComboBoxColumn Width="0.25*" x:Name="DataGridPTVs1Ref" Header="Reference target" SelectedValueBinding="{Binding ReferenceStructure, Mode=TwoWay}" DisplayMemberPath="{Binding ReferenceStructure}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <Button x:Name="DosimetryPanelButtonCalculate" Content="Calculate" Grid.Column="0" Grid.Row="1" Height="30"  Width="Auto" VerticalAlignment="Center" HorizontalAlignment="Stretch" Margin="0,0,0,10" Click="DosimetryPanelButtonCalculate_Click"/>
+                                <DataGrid x:Name="DataGridPTVs2" Grid.Column="0" Grid.Row="2" IsReadOnly="True" VerticalAlignment="Top" HorizontalAlignment="Stretch" Height="Auto" AutoGenerateColumns="False">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn Header="Structure" Width="110" Binding="{Binding Path=Structure}" ElementStyle="{StaticResource ColumnElementStyle}"/>
+                                        <DataGridTextColumn Header="Goal" Width="110" Binding="{Binding Path=Objective}" ElementStyle="{StaticResource ColumnElementStyle}"/>
+                                        <DataGridTextColumn Header="Value" Width="60" Binding="{Binding Path=Value}" ElementStyle="{StaticResource ColumnElementStyle}" FontWeight="Bold"/>
+                                        <DataGridTextColumn Header="Comment" Width="110" Binding="{Binding Path=Comment}" ElementStyle="{StaticResource ColumnElementStyle}">
+                                            <DataGridTextColumn.CellStyle>
+                                                <Style TargetType="DataGridCell">
+                                                    <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                                    <Setter Property="ToolTipService.ShowDuration" Value="1000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsSelected" Value="True">
+                                                            <Setter Property="Background" Value="Transparent"/>
+                                                            <Setter Property="Foreground" Value="Black"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </DataGridTextColumn.CellStyle>
+                                        </DataGridTextColumn>
+                                        <DataGridTemplateColumn Width="50" Header="OK?">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Path=Passed}" Foreground="{Binding Path=PassedColor}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                    </DataGrid.Columns>
+                                    <DataGrid.CellStyle>
+                                        <Style TargetType="DataGridCell">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                    <Setter Property="Foreground" Value="Black"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </DataGrid.CellStyle>
+                                    <DataGrid.GroupStyle>
+                                        <GroupStyle>
+                                            <GroupStyle.ContainerStyle>
+                                                <Style TargetType="{x:Type GroupItem}">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                                <StackPanel>
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <TextBlock Text="{Binding Name}" Margin="10,5,5,5" Background="Yellow" FontWeight="Bold"/>
+                                                                    </StackPanel>
+                                                                    <ItemsPresenter />
+                                                                </StackPanel>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </GroupStyle.ContainerStyle>
+                                        </GroupStyle>
+                                    </DataGrid.GroupStyle>
+                                </DataGrid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+                <!-- #################################################################################################################### -->
+                <!-- #################################################################################################################### -->
+                <!-- #################################################################################################################### -->
+                <!-- #################################################################################################################### -->
+                <TabItem Header="Special dosimetry"  Height="40" Width="120">
+                    <Grid>
+                        <Grid Margin="10,7,0,10" ShowGridLines="False">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+
+                            <Grid Margin="0,0,10,0" Grid.Column="0" HorizontalAlignment="Left">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="Auto"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Label Grid.Column="0" Content="Select table:" HorizontalAlignment="Left" VerticalAlignment="Center" Margin="0,0,10,0"/>
+                                <ComboBox x:Name="ComboBoxSpecialDataTable" Grid.Column="1" HorizontalAlignment="Left" VerticalContentAlignment="Center" VerticalAlignment="Center" Width="200" Height="30" Margin="0,0,10,0" MaxDropDownHeight="600"/>
+                                <Button x:Name="ButtonShowTable" Grid.Column="2" Content="Open" HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="30" Margin="0,0,10,0" Click="ButtonShowTable_Click" />
+                                <Button x:Name="ButtonSaveTable" Grid.Column="3" Content="Save" HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="30" Margin="0,0,10,0" Click="Button_Click_2" />
+                                <Button x:Name="ButtonDeleteTable" Grid.Column="4" Content="Delete" HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="30" Margin="0,0,10,0" Click="ButtonDeleteTable_Click" />
+                                <Button x:Name="ButtonClear" Grid.Column="5" Content="Clear" HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="30" Margin="0,0,10,0" Click="ButtonClear_Click" />
+                                <Button x:Name="ButtonSql" Grid.Column="6" Content="SQL" HorizontalAlignment="Right" VerticalAlignment="Center" Width="80" Height="30" Margin="0,0,10,0" Click="ButtonSql_Click" />
+
+                                <Button x:Name="ButtonGetFromProtocol" Grid.Column="7" Content="Get from protocol" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="70,0,10,0" Width="120" Height="30" Background="LightGreen" Click="Button_Click_3"/>
+                                <Button x:Name="ButtonCreateOptObjectives" Grid.Column="8" Content="Insert objectives" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Width="100" Height="30" Background="Orange" Click="Button_Click_5"/>
+                                <Button x:Name="ButtonCreatePlan" Grid.Column="9" Content="Create plan" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,10,0" Width="100" Height="30" Background="Violet" Click="ButtonCreatePlan_Click"/>
+                                <Button Grid.Column="10" Content="EQD2 calculator" Margin="0,0,10,0" HorizontalAlignment="Right" VerticalAlignment="Center" Width="100" Height="30" Background="LightBlue" Click="Button_Click_4"/>
+                            </Grid>
+                            <StackPanel Orientation="Horizontal" Grid.Column="1" HorizontalAlignment="Right" VerticalAlignment="Center">
+                                <Button Content="Close"  Width="110" Height="30" Margin="0,0,10,0" Click="Button_Click"/>
+                            </StackPanel>
+
+                        </Grid>
+
+                        <Grid Margin="10,50,10,20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Height="Auto" Width="Auto">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="Auto"/>
+                            </Grid.ColumnDefinitions>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="30"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Horizontal">
+                                <Label Content="100 % = " HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                                <TextBox x:Name="TextBoxSpecialNormalization" Text="" Background="AliceBlue" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" TextChanged="OnTextChanged"></TextBox>
+                                <Label Content="cGy" HorizontalAlignment="Left" VerticalAlignment="Center"></Label>
+                                <Button x:Name="ButtonSpecialNormalization" Content="" Height="20" Width="50" Click="ButtonSpecialNormalization_Click"></Button>
+                            </StackPanel>
+
+                            <Label x:Name="DosimetrySpecialPlanLabel" Grid.Column="1" Grid.Row="0" Content="Plan: " HorizontalAlignment="Left" VerticalAlignment="Center" Margin="20,0,0,0"/>
+
+                            <DataGrid x:Name="DataGridSpecialOrgan" Grid.Column="0" Grid.Row="1" IsReadOnly="False" CanUserAddRows="True" CanUserDeleteRows="True" HorizontalAlignment="Stretch" MaxHeight="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualHeight}"  VerticalAlignment="Top" Width="Auto" AutoGenerateColumns="False" SourceUpdated="DataGridSpecialOrgan_SourceUpdated">
+                                <DataGrid.Columns>
+                                    <DataGridComboBoxColumn  x:Name="DataGridSpecialOrganStructure" Width="120" Header="Structure" SelectedValueBinding="{Binding Structure, Mode=TwoWay, NotifyOnSourceUpdated=True}" DisplayMemberPath="{Binding Structure}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+                                    <DataGridComboBoxColumn  x:Name="DataGridSpecialOrganObjectiveType" Width="70" Header="Type" SelectedValueBinding="{Binding ObjectiveType, Mode=TwoWay, NotifyOnSourceUpdated=True}"  DisplayMemberPath="{Binding ObjectiveType}" CellStyle="{StaticResource DataGridContentCellCentering}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+
+                                    <DataGridTextColumn Header="Value1" Width="65" Binding="{Binding AtValue, Mode=TwoWay, NotifyOnSourceUpdated=True}" ElementStyle="{StaticResource ColumnElementStyle}">
+                                        <DataGridTextColumn.EditingElementStyle>
+                                            <Style TargetType="TextBox">
+                                                <EventSetter Event="TextChanged" Handler="OnTextChanged" />
+                                            </Style>
+                                        </DataGridTextColumn.EditingElementStyle>
+                                    </DataGridTextColumn>
+
+                                    <DataGridComboBoxColumn  x:Name="DataGridSpecialOrganAtUnit" Width="50" Header="Unit1" SelectedValueBinding="{Binding AtUnit, Mode=TwoWay, NotifyOnSourceUpdated=True}" DisplayMemberPath="{Binding AtUnit}" CellStyle="{StaticResource DataGridContentCellCentering}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+                                    <DataGridComboBoxColumn  x:Name="DataGridSpecialOrganExp" Width="35" Header="Exp" SelectedValueBinding="{Binding ObjectiveExp, Mode=TwoWay, NotifyOnSourceUpdated=True}" DisplayMemberPath="{Binding ObjectiveExp}" CellStyle="{StaticResource DataGridContentCellCentering}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+
+                                    <DataGridTextColumn Header="Value2" Width="65" Binding="{Binding ThanValue, Mode=TwoWay, NotifyOnSourceUpdated=True}" ElementStyle="{StaticResource ColumnElementStyle}">
+                                        <DataGridTextColumn.EditingElementStyle>
+                                            <Style TargetType="TextBox">
+                                                <EventSetter Event="TextChanged" Handler="OnTextChanged" />
+                                            </Style>
+                                        </DataGridTextColumn.EditingElementStyle>
+                                    </DataGridTextColumn>
+
+                                    <DataGridComboBoxColumn  x:Name="DataGridSpecialOrganThanUnit" Width="50" Header="Unit2" SelectedValueBinding="{Binding ThanUnit, Mode=TwoWay, NotifyOnSourceUpdated=True}" DisplayMemberPath="{Binding ThanUnit}" CellStyle="{StaticResource DataGridContentCellCentering}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+
+                                    <DataGridTemplateColumn Width="60" Header="Calc.">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding CalculatedValue, Mode=TwoWay}" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                    <DataGridTextColumn Header="Comment" Binding="{Binding Comment, Mode=TwoWay}" Width="150" ElementStyle="{StaticResource ColumnElementStyle}" >
+                                        <DataGridTextColumn.CellStyle>
+                                            <Style TargetType="DataGridCell">
+                                                <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                                <Setter Property="ToolTipService.ShowDuration" Value="1000000"></Setter>
+                                                <Style.Triggers>
+                                                    <Trigger Property="IsSelected" Value="True">
+                                                        <Setter Property="Background" Value="Transparent"/>
+                                                        <Setter Property="Foreground" Value="Black"/>
+                                                    </Trigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </DataGridTextColumn.CellStyle>
+                                    </DataGridTextColumn>
+
+                                    <DataGridTemplateColumn Width="40" Header="OK?">
+                                        <DataGridTemplateColumn.CellTemplate>
+                                            <DataTemplate>
+                                                <TextBlock Text="{Binding Passed, Mode=TwoWay}" Foreground="{Binding PassedColor, Mode=TwoWay}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                            </DataTemplate>
+                                        </DataGridTemplateColumn.CellTemplate>
+                                    </DataGridTemplateColumn>
+
+                                </DataGrid.Columns>
+                                <DataGrid.CellStyle>
+                                    <Style TargetType="DataGridCell">
+                                        <Style.Triggers>
+                                            <Trigger Property="IsSelected" Value="True">
+                                                <Setter Property="Background" Value="Transparent"/>
+                                                <Setter Property="Foreground" Value="Black"/>
+                                            </Trigger>
+                                        </Style.Triggers>
+                                    </Style>
+                                </DataGrid.CellStyle>
+                                <DataGrid.GroupStyle>
+                                    <GroupStyle>
+                                        <GroupStyle.ContainerStyle>
+                                            <Style TargetType="{x:Type GroupItem}">
+                                                <Setter Property="Template">
+                                                    <Setter.Value>
+                                                        <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                            <StackPanel>
+                                                                <StackPanel Orientation="Horizontal">
+                                                                    <TextBlock Text="{Binding Name}" Margin="10,5,5,5" Background="Yellow" FontWeight="Bold"/>
+                                                                </StackPanel>
+                                                                <ItemsPresenter />
+                                                            </StackPanel>
+                                                        </ControlTemplate>
+                                                    </Setter.Value>
+                                                </Setter>
+                                            </Style>
+                                        </GroupStyle.ContainerStyle>
+                                    </GroupStyle>
+                                </DataGrid.GroupStyle>
+                            </DataGrid>
+
+                            <Grid Grid.Column="1" Grid.Row="1" Margin="20,0,0,0" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" MaxHeight="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualHeight}" Width="Auto">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="670"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <DataGrid x:Name="DataGridSpecialPTV1" Grid.Column="0" Grid.Row="0" IsReadOnly="False" CanUserAddRows="False" CanUserDeleteRows="False" EnableRowVirtualization="False" VerticalAlignment="Top" Height="Auto" MaxHeight="200" Width="Auto" AutoGenerateColumns="False" Margin="0,0,0,5" TargetUpdated="DataGridSpecialPTV1_TargetUpdated">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn IsReadOnly="True" Header="Structure" Width="0.33*" Binding="{Binding Structure, Mode=TwoWay, NotifyOnTargetUpdated=True}" ElementStyle="{StaticResource ColumnElementStyle}">
+                                            <DataGridTextColumn.EditingElementStyle>
+                                                <Style TargetType="TextBox">
+                                                    <EventSetter Event="TextChanged" Handler="OnTextChanged" />
+                                                </Style>
+                                            </DataGridTextColumn.EditingElementStyle>
+                                        </DataGridTextColumn>
+
+                                        <DataGridTextColumn Header="Total dose [cGy]" Width="0.33*" Binding="{Binding TotalDose, Mode=TwoWay, NotifyOnTargetUpdated=True}" ElementStyle="{StaticResource ColumnElementStyle}">
+                                            <DataGridTextColumn.EditingElementStyle>
+                                                <Style TargetType="TextBox">
+                                                    <EventSetter Event="TextChanged" Handler="OnTextChanged" />
+                                                </Style>
+                                            </DataGridTextColumn.EditingElementStyle>
+                                        </DataGridTextColumn>
+
+                                        <DataGridComboBoxColumn x:Name="DataGridSpecialPTV1Ref" Width="0.33*" Header="Reference target" SelectedValueBinding="{Binding ReferenceStructure, Mode=TwoWay, NotifyOnTargetUpdated=True}" DisplayMemberPath="{Binding ReferenceStructure}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}" />
+                                    </DataGrid.Columns>
+                                    <DataGrid.CellStyle>
+                                        <Style TargetType="DataGridCell">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                    <Setter Property="Foreground" Value="Black"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </DataGrid.CellStyle>
+                                </DataGrid>
+
+                                <Button x:Name="ButtonSpecialFillTargetObjectives" Grid.Column="0" Grid.Row="1" Width="60" Height="20" Content="Fill" HorizontalAlignment="Right" Click="ButtonSpecialFillTargetObjectives_Click"></Button>
+
+                                <DataGrid x:Name="DataGridSpecialPTV2" Grid.Column="0" Grid.Row="2" Margin="0,5,0,0" IsReadOnly="False" CanUserAddRows="True" CanUserDeleteRows="True" HorizontalAlignment="Stretch" Width="Auto" MaxHeight="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualHeight}" VerticalAlignment="Top"  AutoGenerateColumns="False" SourceUpdated="DataGridSpecialPTV2_SourceUpdated">
+                                    <DataGrid.Columns>
+                                        <DataGridComboBoxColumn  x:Name="DataGridSpecialPTV2Structure" Width="120" Header="Structure" SelectedValueBinding="{Binding Structure, Mode=TwoWay, NotifyOnSourceUpdated=True}" DisplayMemberPath="{Binding Structure}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+                                        <DataGridComboBoxColumn  x:Name="DataGridSpecialPTV2ObjectiveType" Width="70" Header="Type" SelectedValueBinding="{Binding ObjectiveType, Mode=TwoWay, NotifyOnSourceUpdated=True}"  DisplayMemberPath="{Binding ObjectiveType}" CellStyle="{StaticResource DataGridContentCellCentering}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+
+                                        <DataGridTextColumn Header="Value1" Width="65" Binding="{Binding AtValue, Mode=TwoWay, NotifyOnSourceUpdated=True}" ElementStyle="{StaticResource ColumnElementStyle}">
+                                            <DataGridTextColumn.EditingElementStyle>
+                                                <Style TargetType="TextBox">
+                                                    <EventSetter Event="TextChanged" Handler="OnTextChanged" />
+                                                </Style>
+                                            </DataGridTextColumn.EditingElementStyle>
+                                            <DataGridTextColumn.CellStyle>
+                                                <Style TargetType="DataGridCell">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                    <Setter Property="Foreground" Value="Black"/>
+                                                </Style>
+                                            </DataGridTextColumn.CellStyle>
+                                        </DataGridTextColumn>
+
+                                        <DataGridComboBoxColumn  x:Name="DataGridSpecialPTV2AtUnit" Width="50" Header="Unit1" SelectedValueBinding="{Binding AtUnit, Mode=TwoWay, NotifyOnSourceUpdated=True}" DisplayMemberPath="{Binding AtUnit}" CellStyle="{StaticResource DataGridContentCellCentering}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+                                        <DataGridComboBoxColumn  x:Name="DataGridSpecialPTV2Exp" Width="35" Header="Exp" SelectedValueBinding="{Binding ObjectiveExp, Mode=TwoWay, NotifyOnSourceUpdated=True}" DisplayMemberPath="{Binding ObjectiveExp}" CellStyle="{StaticResource DataGridContentCellCentering}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+
+                                        <DataGridTextColumn Header="Value2" Width="65" Binding="{Binding ThanValue, Mode=TwoWay, NotifyOnSourceUpdated=True}" ElementStyle="{StaticResource ColumnElementStyle}">
+                                            <DataGridTextColumn.EditingElementStyle>
+                                                <Style TargetType="TextBox">
+                                                    <EventSetter Event="TextChanged" Handler="OnTextChanged" />
+                                                </Style>
+                                            </DataGridTextColumn.EditingElementStyle>
+                                        </DataGridTextColumn>
+
+                                        <DataGridComboBoxColumn  x:Name="DataGridSpecialPTV2ThanUnit" Width="50" Header="Unit2" SelectedValueBinding="{Binding ThanUnit, Mode=TwoWay, NotifyOnSourceUpdated=True}" DisplayMemberPath="{Binding ThanUnit}" CellStyle="{StaticResource DataGridContentCellCentering}" EditingElementStyle="{StaticResource ComboBoxDropdownStyle}"/>
+
+                                        <DataGridTemplateColumn Width="60" Header="Calc.">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding CalculatedValue, Mode=TwoWay}" HorizontalAlignment="Center" FontWeight="Bold"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                        <DataGridTextColumn Header="Comment" Binding="{Binding Comment, Mode=TwoWay}" Width="90" ElementStyle="{StaticResource ColumnElementStyle}" >
+                                            <DataGridTextColumn.CellStyle>
+                                                <Style TargetType="DataGridCell">
+                                                    <Setter Property="ToolTip" Value="{Binding Comment}" />
+                                                    <Setter Property="ToolTipService.ShowDuration" Value="1000000"></Setter>
+                                                    <Style.Triggers>
+                                                        <Trigger Property="IsSelected" Value="True">
+                                                            <Setter Property="Background" Value="Transparent"/>
+                                                            <Setter Property="Foreground" Value="Black"/>
+                                                        </Trigger>
+                                                    </Style.Triggers>
+                                                </Style>
+                                            </DataGridTextColumn.CellStyle>
+                                        </DataGridTextColumn>
+
+                                        <DataGridTemplateColumn Width="40" Header="OK?">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <TextBlock Text="{Binding Passed, Mode=TwoWay}" Foreground="{Binding PassedColor, Mode=TwoWay}" FontWeight="Bold" HorizontalAlignment="Center"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+
+                                    </DataGrid.Columns>
+                                    <DataGrid.CellStyle>
+                                        <Style TargetType="DataGridCell">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsSelected" Value="True">
+                                                    <Setter Property="Background" Value="Transparent"/>
+                                                    <Setter Property="Foreground" Value="Black"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </DataGrid.CellStyle>
+                                    <DataGrid.GroupStyle>
+                                        <GroupStyle>
+                                            <GroupStyle.ContainerStyle>
+                                                <Style TargetType="{x:Type GroupItem}">
+                                                    <Setter Property="Template">
+                                                        <Setter.Value>
+                                                            <ControlTemplate TargetType="{x:Type GroupItem}">
+                                                                <StackPanel>
+                                                                    <StackPanel Orientation="Horizontal">
+                                                                        <TextBlock Text="{Binding Name}" Margin="10,5,5,5" Background="Yellow" FontWeight="Bold"/>
+                                                                    </StackPanel>
+                                                                    <ItemsPresenter />
+                                                                </StackPanel>
+                                                            </ControlTemplate>
+                                                        </Setter.Value>
+                                                    </Setter>
+                                                </Style>
+                                            </GroupStyle.ContainerStyle>
+                                        </GroupStyle>
+                                    </DataGrid.GroupStyle>
+                                </DataGrid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </TabItem>
+            </TabControl>
+        </Grid>
+    </ScrollViewer>
+</Window>

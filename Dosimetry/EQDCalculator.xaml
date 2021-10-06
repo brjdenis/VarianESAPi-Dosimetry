@@ -1,0 +1,182 @@
+﻿<Window x:Class="Dosimetry.EQDCalculator"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Dosimetry"
+             mc:Ignorable="d" 
+             Height="300" Width="600" Title="EQD2 calculator" FontSize="16">
+    <Window.Resources>
+        <Style TargetType="{x:Type Button}"/>
+        <Style TargetType="{x:Type Label}"/>
+        <Style TargetType="{x:Type Border}"/>
+        <Style TargetType="{x:Type CheckBox}"/>
+        <Style TargetType="{x:Type DataGrid}"/>
+        <Style TargetType="{x:Type ToolTip}"/>
+        <Style TargetType="{x:Type TextBlock}"/>
+        <Style TargetType="{x:Type StackPanel}"/>
+        <Style TargetType="{x:Type GroupBox}"/>
+        <Style TargetType="{x:Type ScrollBar}"/>
+        <Style TargetType="{x:Type TabControl}"/>
+        <Style TargetType="{x:Type TabItem}"/>
+        <Style TargetType="{x:Type TextBox}"/>
+    </Window.Resources>
+    <Grid>
+        <TabControl TabStripPlacement="Bottom" Background="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}" MaxWidth="{Binding RelativeSource={RelativeSource AncestorType={x:Type Grid}}, Path=ActualWidth}">
+            <TabItem Header="Seeking EQD2" Height="30" Width="120">
+                <StackPanel>
+                    <Grid Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="150">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="80"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="75"/>
+                            <ColumnDefinition Width="75"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+
+                        <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">n</TextBlock>
+                        <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center">d [Gy]</TextBlock>
+                        <TextBlock Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center">D [Gy]</TextBlock>
+                        <TextBlock Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center">α/β [Gy]</TextBlock>
+                        <TextBlock Grid.Column="5" Grid.Row="0" HorizontalAlignment="Center">EQD2 [Gy]</TextBlock>
+
+                        <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                        <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                        <Border Grid.Column="2" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                        <Border Grid.Column="3" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                        <Border Grid.Column="4" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                        <Border Grid.Column="5" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+
+                        <TextBlock Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center">1st course</TextBlock>
+                        <TextBox x:Name="Tab1TextBoxColumn1Row1"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell"></TextBox>
+                        <TextBox x:Name="Tab1TextBoxColumn2Row1" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell"></TextBox>
+                        <TextBlock x:Name="Tab1TextBlockColumn3Row1" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox x:Name="Tab1TextBoxColumn4Row1" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell">2</TextBox>
+                        <TextBlock x:Name="Tab1TextBlockColumn5Row1" Grid.Column="5" Grid.Row="1" HorizontalAlignment="Center"></TextBlock>
+
+                        <TextBlock Grid.Column="0" Grid.Row="2" HorizontalAlignment="Center">2nd course</TextBlock>
+                        <TextBox x:Name="Tab1TextBoxColumn1Row2"  Grid.Column="1" Grid.Row="2" HorizontalAlignment="Stretch" TextAlignment="Center"  TextChanged="OnTextChanged" LostFocus="LostFocusCell"></TextBox>
+                        <TextBox x:Name="Tab1TextBoxColumn2Row2" Grid.Column="2" Grid.Row="2" HorizontalAlignment="Stretch" TextAlignment="Center"  TextChanged="OnTextChanged" LostFocus="LostFocusCell"></TextBox>
+                        <TextBlock x:Name="Tab1TextBlockColumn3Row2" Grid.Column="3" Grid.Row="2" HorizontalAlignment="Center"></TextBlock>
+                        <TextBox x:Name="Tab1TextBoxColumn4Row2" Grid.Column="4" Grid.Row="2" HorizontalAlignment="Stretch" TextAlignment="Center"  TextChanged="OnTextChanged" LostFocus="LostFocusCell">2</TextBox>
+                        <TextBlock x:Name="Tab1TextBlockColumn5Row2" Grid.Column="5" Grid.Row="2" HorizontalAlignment="Center"></TextBlock>
+
+                        <Border Grid.Column="0" Grid.Row="3" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent">
+                            <TextBlock Grid.Column="0" Grid.Row="3" HorizontalAlignment="Center">3rd course</TextBlock>
+                        </Border>
+                        <Border Grid.Column="1" Grid.Row="3" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent">
+                            <TextBox x:Name="Tab1TextBoxColumn1Row3"  Grid.Column="1" Grid.Row="3" HorizontalAlignment="Stretch" TextAlignment="Center"  TextChanged="OnTextChanged" LostFocus="LostFocusCell"></TextBox>
+                        </Border>
+                        <Border Grid.Column="2" Grid.Row="3" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent">
+                            <TextBox x:Name="Tab1TextBoxColumn2Row3" Grid.Column="2" Grid.Row="3" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell"></TextBox>
+                        </Border>
+                        <Border Grid.Column="3" Grid.Row="3" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent">
+                            <TextBlock x:Name="Tab1TextBlockColumn3Row3" Grid.Column="3" Grid.Row="3" HorizontalAlignment="Center"></TextBlock>
+                        </Border>
+                        <Border Grid.Column="4" Grid.Row="3" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent">
+                            <TextBox x:Name="Tab1TextBoxColumn4Row3" Grid.Column="4" Grid.Row="3" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell">2</TextBox>
+                        </Border>
+                        <Border Grid.Column="5" Grid.Row="3" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent">
+                            <TextBlock x:Name="Tab1TextBlockColumn5Row3" Grid.Column="5" Grid.Row="3" HorizontalAlignment="Center"></TextBlock>
+                        </Border>
+
+                        <TextBlock Grid.Column="0" Grid.Row="4" HorizontalAlignment="Center">Sum</TextBlock>
+                        <TextBlock x:Name="Tab1TextBlockColumn1Row4" Grid.Column="1" Grid.Row="4" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Tab1TextBlockColumn3Row4" Grid.Column="3" Grid.Row="4" HorizontalAlignment="Center"></TextBlock>
+                        <TextBlock x:Name="Tab1TextBlockColumn5Row4" Grid.Column="5" Grid.Row="4" HorizontalAlignment="Center"></TextBlock>
+
+                    </Grid>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="160"/>
+                            <ColumnDefinition Width="Auto"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock  Grid.Column="0" Grid.Row="0" Margin="5,0,0,0" FontSize="10"><Run Text="n - number of fractions"/><LineBreak/><Run Text="d - dose per fraction"/><LineBreak/><Run Text="D - total dose (n*d)"/><LineBreak/><Run Text="EQD2 - equivalent dose"/></TextBlock>
+                        <Image Source="image/eqd2.png" Grid.Column="1" Grid.Row="0" Margin="10,0,0,0" Height="45"></Image>
+                    </Grid>
+                    
+                </StackPanel>
+
+            </TabItem>
+            <TabItem Header="Seeking D" Height="30" Width="100">
+                <Grid Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="75"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center">n</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">d [Gy]</TextBlock>
+                    <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center">D [Gy]</TextBlock>
+                    <TextBlock Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center">α/β [Gy]</TextBlock>
+                    <TextBlock Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center">EQD2 [Gy]</TextBlock>
+
+                    <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                    <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                    <Border Grid.Column="2" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                    <Border Grid.Column="3" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                    <Border Grid.Column="4" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+
+                    <TextBox x:Name="Tab2TextBoxColumn0Row1" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell2"></TextBox>
+                    <TextBlock x:Name="Tab2TextBoxColumn1Row1"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Center"></TextBlock>
+                    <TextBlock x:Name="Tab2TextBoxColumn2Row1" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox x:Name="Tab2TextBlockColumn3Row1" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell2">2</TextBox>
+                    <TextBox x:Name="Tab2TextBoxColumn4Row1" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell2"></TextBox>
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Seeking n" Height="30" Width="100">
+                <Grid Margin="5,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="500" Height="200">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="75"/>
+                        <ColumnDefinition Width="75"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="Auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Column="0" Grid.Row="0" HorizontalAlignment="Center">n</TextBlock>
+                    <TextBlock Grid.Column="1" Grid.Row="0" HorizontalAlignment="Center">d [Gy]</TextBlock>
+                    <TextBlock Grid.Column="2" Grid.Row="0" HorizontalAlignment="Center">D [Gy]</TextBlock>
+                    <TextBlock Grid.Column="3" Grid.Row="0" HorizontalAlignment="Center">α/β [Gy]</TextBlock>
+                    <TextBlock Grid.Column="4" Grid.Row="0" HorizontalAlignment="Center">EQD2 [Gy]</TextBlock>
+
+                    <Border Grid.Column="0" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                    <Border Grid.Column="1" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                    <Border Grid.Column="2" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                    <Border Grid.Column="3" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+                    <Border Grid.Column="4" Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="Transparent" />
+
+                    <TextBlock x:Name="Tab3TextBlockColumn0Row1" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox x:Name="Tab3TextBoxColumn1Row1"  Grid.Column="1" Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell3"></TextBox>
+                    <TextBlock x:Name="Tab3TextBoxColumn2Row1" Grid.Column="2" Grid.Row="1" HorizontalAlignment="Center"></TextBlock>
+                    <TextBox x:Name="Tab3TextBlockColumn3Row1" Grid.Column="3" Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell3">2</TextBox>
+                    <TextBox x:Name="Tab3TextBoxColumn4Row1" Grid.Column="4" Grid.Row="1" HorizontalAlignment="Stretch" TextAlignment="Center" TextChanged="OnTextChanged" LostFocus="LostFocusCell3"></TextBox>
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

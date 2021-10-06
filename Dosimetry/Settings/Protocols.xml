@@ -1,0 +1,344 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<Protocol name="Quantec">
+		<Structure type="Organ" name="Brain">
+			<Objective type="Dmax" at="" exp="less" than="6000cGy" comment="&lt;3% symptomatic necrosis"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="7200cGy" comment="&lt;5% symptomatic necrosis"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="9000cGy" comment="&lt;10% symptomatic necrosis"></Objective>
+			<Objective type="V" at="1200cGy" exp="less" than="10cm3" comment="SRS-1fr. &lt;20% symptomatic necrosis"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Brainstem">
+			<Objective type="Dmax" at="" exp="less" than="5400cGy2" comment="&lt;5% permanent neuropathy or necrosis"></Objective>
+			<Objective type="D" at="1cm3" exp="less" than="5900cGy2" comment="&lt;5% permanent neuropathy or necrosis"></Objective>
+			<Objective type="V" at="6400cGy2" exp="less" than="1cm3" comment="&lt;5% permanent neuropathy or necrosis"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="1250cGy" comment="SRS-1fr. &lt;5% permanent neuropathy or necrosis"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Optic nerve L">
+			<Objective type="Dmax" at="" exp="less" than="5500cGy2" comment="&lt;3% optic neuropathy"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="6000cGy2" comment="&lt;7% optic neuropathy"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="1200cGy2" comment="SRS-1fr. &lt;10% optic neuropathy"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Optic nerve R">
+			<Objective type="Dmax" at="" exp="less" than="5500cGy2" comment="&lt;3% optic neuropathy"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="6000cGy2" comment="&lt;7% optic neuropathy"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="1200cGy2" comment="SRS-1fr. &lt;10% optic neuropathy"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Spinal cord">
+			<Objective type="Dmax" at="" exp="less" than="5000cGy2" comment="0.2% myelopathy"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="6000cGy2" comment="6% myelopathy"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="6900cGy2" comment="50% myelopathy"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="1300cGy2" comment="SRS-1fr. 1% myelopathy"></Objective>
+			<Objective type="Dmax" at="" exp="less" than="2000cGy2" comment="SRS-hypofr. 1% myelopathy"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Cohlea">
+			<Objective type="Dmean" at="" exp="less" than="4500cGy" comment="&lt;30% sensory neural hearing loss"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="1400cGy" comment="SRS-1fr. &lt;25% sensory neural hearing loss"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Parotid L">
+			<Objective type="Dmean" at="" exp="less" than="2000cGy" comment="&lt;20% long term salivary function reduced to &lt;25%"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Parotid R">
+			<Objective type="Dmean" at="" exp="less" than="2000cGy" comment="&lt;20% long term salivary function reduced to &lt;25%"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Pharynx">
+			<Objective type="Dmean" at="" exp="less" than="5000cGy" comment="&lt;20% symptomatic dysphagia and aspiration"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Larynx">
+			<Objective type="Dmax" at="" exp="less" than="6600cGy" comment="&lt;20% vocal dysfunction, with chemo."></Objective>
+			<Objective type="Dmean" at="" exp="less" than="5000cGy" comment="&lt;30% aspiration, with chemo."></Objective>
+			<Objective type="Dmean" at="" exp="less" than="4400cGy" comment="&lt;20% edema, without chemo."></Objective>
+			<Objective type="V" at="5000cGy" exp="less" than="27%" comment="&lt;20% edema, without chemo."></Objective>
+		</Structure>
+		<Structure type="Organ" name="Lungs">
+			<Objective type="V" at="2000cGy" exp="less" than="30%" comment="&lt;20% symptomatic pneumonitis, combined lung"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="700cGy" comment="&lt;5% symptomatic pneumonitis"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="1300cGy" comment="&lt;10% symptomatic pneumonitis"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="2000cGy" comment="&lt;20% symptomatic pneumonitis"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="2400cGy" comment="&lt;30% symptomatic pneumonitis"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="2700cGy" comment="&lt;40% symptomatic pneumonitis"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Esophagus">
+			<Objective type="Dmean" at="" exp="less" than="3400cGy" comment="5-20% grade&gt;3 esophagitis"></Objective>
+			<Objective type="V" at="3500cGy" exp="less" than="50%" comment="&lt;30% grade&gt;2 esophagitis"></Objective>
+			<Objective type="V" at="5000cGy" exp="less" than="50%" comment="&lt;30% grade&gt;2 esophagitis"></Objective>
+			<Objective type="V" at="7000cGy" exp="less" than="20%" comment="&lt;30% grade&gt;2 esophagitis"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Heart">
+			<Objective type="Dmean" at="" exp="less" than="2600cGy" comment="&lt;15% pericarditis"></Objective>
+			<Objective type="V" at="3000cGy" exp="less" than="46%" comment="&lt;15% pericarditis"></Objective>
+			<Objective type="V" at="2500cGy" exp="less" than="10%" comment="&lt;1% long-term cardiac mortality"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Liver">
+			<Objective type="Dmean" at="" exp="less" than="3200cGy" comment="&lt;5% RILD"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="4200cGy" comment="&lt;50% RILD"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="2800cGy" comment="&lt;5% RILD preexisting liver disease"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="3600cGy" comment="&lt;50% RILD preexisting liver disease"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="1300cGy" comment="&lt;5% RILD SBRT-3fr. primary liver cancer"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="1800cGy" comment="&lt;5% RILD SBRT-6fr. primary liver cancer"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="1500cGy" comment="&lt;5% RILD SBRT-3fr. metastases"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="2000cGy" comment="&lt;5% RILD SBRT-6fr. metastases"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Kidney L">
+			<Objective type="Dmean" at="" exp="less" than="1800cGy" comment="&lt;5% renal dysfunction"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="2800cGy" comment="&lt;50% renal dysfunction"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Kidney R">
+			<Objective type="Dmean" at="" exp="less" than="1800cGy" comment="&lt;5% renal dysfunction"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="2800cGy" comment="&lt;50% renal dysfunction"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Kidneys">
+			<Objective type="V" at="1200cGy" exp="less" than="55%" comment="&lt;5% renal dysfunction"></Objective>
+			<Objective type="V" at="2000cGy" exp="less" than="32%" comment="&lt;5% renal dysfunction"></Objective>
+			<Objective type="V" at="2300cGy" exp="less" than="30%" comment="&lt;5% renal dysfunction"></Objective>
+			<Objective type="V" at="2800cGy" exp="less" than="20%" comment="&lt;5% renal dysfunction"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Stomach">
+			<Objective type="D" at="100%" exp="less" than="4500cGy" comment="&lt;7% ulceration"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Small bowel">
+			<Objective type="V" at="4500cGy" exp="less" than="195cm3" comment="&lt;10% grade &gt;3 acute toxicity"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Rectum">
+			<Objective type="V" at="5000cGy" exp="less" than="50%" comment="&lt;15% grade &gt;2 late rectal toxicity, &lt;10% grade &gt;3 late rectal toxicity"></Objective>
+			<Objective type="V" at="6000cGy" exp="less" than="35%" comment="&lt;15% grade &gt;2 late rectal toxicity, &lt;10% grade &gt;3 late rectal toxicity"></Objective>
+			<Objective type="V" at="6500cGy" exp="less" than="25%" comment="&lt;15% grade &gt;2 late rectal toxicity, &lt;10% grade &gt;3 late rectal toxicity"></Objective>
+			<Objective type="V" at="7000cGy" exp="less" than="20%" comment="&lt;15% grade &gt;2 late rectal toxicity, &lt;10% grade &gt;3 late rectal toxicity"></Objective>
+			<Objective type="V" at="7500cGy" exp="less" than="15%" comment="&lt;15% grade &gt;2 late rectal toxicity, &lt;10% grade &gt;3 late rectal toxicity"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Bladder">
+			<Objective type="Dmax" at="" exp="less" than="6500cGy" comment="&lt;6% grade &gt; 3 late RTOG"></Objective>
+			<Objective type="V" at="6500cGy" exp="less" than="50%" comment="prostate cancer treatment RTOG0415"></Objective>
+			<Objective type="V" at="7000cGy" exp="less" than="35%" comment="prostate cancer treatment RTOG0415"></Objective>
+			<Objective type="V" at="7500cGy" exp="less" than="25%" comment="prostate cancer treatment RTOG0415"></Objective>
+			<Objective type="V" at="8000cGy" exp="less" than="15%" comment="prostate cancer treatment RTOG0415"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Penile bulb">
+			<Objective type="D" at="90%" exp="less" than="5000cGy" comment="&lt;35% severe erectile dysfunction"></Objective>
+			<Objective type="D" at="65%" exp="less" than="7000cGy" comment="&lt;35% severe erectile dysfunction"></Objective>
+		</Structure>
+	</Protocol>
+	<Protocol name="Lung">
+		<Structure type="Organ" name="Spinal cord">
+			<Objective type="Dmax" at="" exp="less" than="5000cGy" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Lungs">
+			<Objective type="V" at="500cGy" exp="less" than="75%" comment=""></Objective>
+			<Objective type="V" at="2000cGy" exp="less" than="35%" comment=""></Objective>
+			<Objective type="Dmean" at="" exp="less" than="2000cGy" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Esophagus">
+			<Objective type="V" at="6000cGy" exp="less" than="17%" comment=""></Objective>
+			<Objective type="V" at="3500cGy" exp="less" than="50%" comment=""></Objective>
+			<Objective type="Dmean" at="" exp="less" than="3400cGy" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Heart">
+			<Objective type="Dmean" at="" exp="less" than="2000cGy" comment=""></Objective>
+			<Objective type="V" at="4500cGy" exp="less" than="35%" comment=""></Objective>
+			<Objective type="V" at="3000cGy" exp="less" than="30%" comment=""></Objective>
+		</Structure>
+	</Protocol>
+	<Protocol name="Lung SBRT (1 fr.)">
+		<Structure type="Organ" name="Spinal cord">
+			<Objective type="Dmax" at="" exp="less" than="1400cGy" comment=""></Objective>
+			<Objective type="V" at="700cGy" exp="less" than="1.2cm3" comment=""></Objective>
+			<Objective type="V" at="1000cGy" exp="less" than="0.35cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Brachial plexus">
+			<Objective type="Dmax" at="" exp="less" than="1750cGy" comment=""></Objective>
+			<Objective type="V" at="1400cGy" exp="less" than="3cm3" comment=""></Objective>
+			<Objective type="Dmean" at="" exp="less" than="1500cGy" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Heart">
+			<Objective type="Dmax" at="" exp="less" than="2200cGy" comment=""></Objective>
+			<Objective type="V" at="1600cGy" exp="less" than="15cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Trachea bronchi">
+			<Objective type="Dmax" at="" exp="less" than="2020cGy" comment=""></Objective>
+			<Objective type="V" at="1740cGy" exp="less" than="4cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Ribs">
+			<Objective type="Dmax" at="" exp="less" than="3300cGy" comment=""></Objective>
+			<Objective type="V" at="2800cGy" exp="less" than="5cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Great vessels">
+			<Objective type="Dmax" at="" exp="less" than="3700cGy" comment=""></Objective>
+			<Objective type="V" at="1610cGy" exp="less" than="4cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Esophagus">
+			<Objective type="Dmax" at="" exp="less" than="2200cGy" comment=""></Objective>
+			<Objective type="V" at="1400cGy" exp="less" than="2.5cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Stomach">
+			<Objective type="Dmax" at="" exp="less" than="1240cGy" comment=""></Objective>
+			<Objective type="V" at="1120cGy" exp="less" than="10cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Small bowel">
+			<Objective type="Dmax" at="" exp="less" than="1540cGy" comment=""></Objective>
+			<Objective type="V" at="1190cGy" exp="less" than="5cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Skin">
+			<Objective type="Dmax" at="" exp="less" than="2600cGy" comment=""></Objective>
+			<Objective type="V" at="2300cGy" exp="less" than="10cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Lungs-PTV">
+			<Objective type="V" at="2000cGy" exp="less" than="10%" comment=""></Objective>
+			<Objective type="V-V" at="700cGy" exp="more" than="1500cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Lungs">
+			<Objective type="V" at="2000cGy" exp="less" than="10%" comment=""></Objective>
+			<Objective type="V-V" at="700cGy" exp="more" than="1500cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Liver">
+			<Objective type="V-V" at="910cGy" exp="more" than="700cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="ITV" name="ITV">
+			<Objective type="V" at="100%" exp="more" than="99%" comment=""></Objective>
+		</Structure>
+		<Structure type="PTV" name="PTV">
+			<Objective type="V" at="100%" exp="more" than="95%" comment=""></Objective>
+			<Objective type="V" at="90%" exp="more" than="99%" comment=""></Objective>
+			<Objective type="Dmax" at="" exp="less" than="150%" comment=""></Objective>
+			<Objective type="Dmax" at="" exp="more" than="125%" comment=""></Objective>
+			<Objective type="R50" at="" exp="less" than="table1" comment="Tolerance"></Objective>
+			<Objective type="R50" at="" exp="less" than="table2" comment="Max allowed"></Objective>
+			<Objective type="R100" at="" exp="less" than="table1" comment="Tolerance"></Objective>
+			<Objective type="R100" at="" exp="less" than="table2" comment="Max allowed"></Objective>
+		</Structure>
+		<Structure type="PTV" name="BODY-(PTV+2cm)">
+			<Objective type="BODY-(PTV+2cm)" at="" exp="less" than="table1" comment="Tolerance"></Objective>
+			<Objective type="BODY-(PTV+2cm)" at="" exp="less" than="table2" comment="Max allowed"></Objective>
+		</Structure>
+		<Structure type="PTV" name="BODY-PTV">
+			<Objective type="V(BODY-PTV)" at="105%" exp="less" than="15%" comment="% Vptv"></Objective>
+		</Structure>
+	</Protocol>
+	<Protocol name="Lung SBRT (3 fr.)">
+		<Structure type="Organ" name="Spinal cord">
+			<Objective type="Dmax" at="" exp="less" than="1400cGy" comment=""></Objective>
+			<Objective type="V" at="700cGy" exp="less" than="1.2cm3" comment=""></Objective>
+			<Objective type="V" at="1000cGy" exp="less" than="0.35cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Brachial plexus">
+			<Objective type="Dmax" at="" exp="less" than="1750cGy" comment=""></Objective>
+			<Objective type="V" at="1400cGy" exp="less" than="3cm3" comment=""></Objective>
+			<Objective type="Dmean" at="" exp="less" than="1500cGy" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Heart">
+			<Objective type="Dmax" at="" exp="less" than="2200cGy" comment=""></Objective>
+			<Objective type="V" at="1600cGy" exp="less" than="15cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Trachea bronchi">
+			<Objective type="Dmax" at="" exp="less" than="2020cGy" comment=""></Objective>
+			<Objective type="V" at="1740cGy" exp="less" than="4cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Ribs">
+			<Objective type="Dmax" at="" exp="less" than="3300cGy" comment=""></Objective>
+			<Objective type="V" at="2800cGy" exp="less" than="5cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Great vessels">
+			<Objective type="Dmax" at="" exp="less" than="3700cGy" comment=""></Objective>
+			<Objective type="V" at="1610cGy" exp="less" than="4cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Esophagus">
+			<Objective type="Dmax" at="" exp="less" than="2200cGy" comment=""></Objective>
+			<Objective type="V" at="1400cGy" exp="less" than="2.5cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Stomach">
+			<Objective type="Dmax" at="" exp="less" than="1240cGy" comment=""></Objective>
+			<Objective type="V" at="1120cGy" exp="less" than="10cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Small bowel">
+			<Objective type="Dmax" at="" exp="less" than="1540cGy" comment=""></Objective>
+			<Objective type="V" at="1190cGy" exp="less" than="5cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Skin">
+			<Objective type="Dmax" at="" exp="less" than="2600cGy" comment=""></Objective>
+			<Objective type="V" at="2300cGy" exp="less" than="10cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Lungs-PTV">
+			<Objective type="V" at="2000cGy" exp="less" than="10%" comment=""></Objective>
+			<Objective type="V-V" at="700cGy" exp="more" than="1500cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Lungs">
+			<Objective type="V" at="2000cGy" exp="less" than="10%" comment=""></Objective>
+			<Objective type="V-V" at="700cGy" exp="more" than="1500cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Liver">
+			<Objective type="V-V" at="910cGy" exp="more" than="700cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="ITV" name="ITV">
+			<Objective type="V" at="100%" exp="more" than="99%" comment=""></Objective>
+		</Structure>
+		<Structure type="PTV" name="PTV">
+			<Objective type="V" at="100%" exp="more" than="95%" comment=""></Objective>
+			<Objective type="V" at="90%" exp="more" than="99%" comment=""></Objective>
+			<Objective type="Dmax" at="" exp="less" than="150%" comment=""></Objective>
+			<Objective type="Dmax" at="" exp="more" than="125%" comment=""></Objective>
+			<Objective type="R50" at="" exp="less" than="table1" comment="Tolerance"></Objective>
+			<Objective type="R50" at="" exp="less" than="table2" comment="Max allowed"></Objective>
+			<Objective type="R100" at="" exp="less" than="table1" comment="Tolerance"></Objective>
+			<Objective type="R100" at="" exp="less" than="table2" comment="Max allowed"></Objective>
+		</Structure>
+		<Structure type="PTV" name="BODY-(PTV+2cm)">
+			<Objective type="BODY-(PTV+2cm)" at="" exp="less" than="table1" comment="Tolerance"></Objective>
+			<Objective type="BODY-(PTV+2cm)" at="" exp="less" than="table2" comment="Max allowed"></Objective>
+		</Structure>
+		<Structure type="PTV" name="BODY-PTV">
+			<Objective type="V(BODY-PTV)" at="105%" exp="less" than="15%" comment="% Vptv"></Objective>
+		</Structure>
+	</Protocol>
+	<Protocol name="HeadAndNeck">
+		<Structure type="Organ" name="Spinal cord">
+			<Objective type="Dmax" at="" exp="less" than="5000cGy2" comment=""></Objective>
+			<Objective type="V" at="4500cGy2" exp="less" than="1cm3" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Brainstem">
+			<Objective type="V" at="5400cGy2" exp="less" than="1%" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Parotid L">
+			<Objective type="Dmean" at="" exp="less" than="2600cGy" comment="or"></Objective>
+			<Objective type="D" at="50%" exp="less" than="3000cGy" comment="or"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Parotid R">
+			<Objective type="Dmean" at="" exp="less" than="2600cGy" comment="or"></Objective>
+			<Objective type="D" at="50%" exp="less" than="3000cGy" comment="or"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Parotid L PRV">
+			<Objective type="Dmean" at="" exp="less" than="2600cGy" comment="or"></Objective>
+			<Objective type="D" at="50%" exp="less" than="3000cGy" comment="or"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Parotid R PRV">
+			<Objective type="Dmean" at="" exp="less" than="2600cGy" comment="or"></Objective>
+			<Objective type="D" at="50%" exp="less" than="3000cGy" comment="or"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Oral cavity">
+			<Objective type="Dmax" at="" exp="less" than="5000cGy" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Lip">
+			<Objective type="Dmax" at="" exp="less" than="5000cGy" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Chiasm">
+			<Objective type="Dmax" at="" exp="less" than="5400cGy2" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Optic nerve L">
+			<Objective type="Dmax" at="" exp="less" than="5400cGy2" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Optic nerve R">
+			<Objective type="Dmax" at="" exp="less" than="5400cGy2" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Eye L">
+			<Objective type="Dmax" at="" exp="less" than="5000cGy" comment="or"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="3500cGy" comment="or"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Eye R">
+			<Objective type="Dmax" at="" exp="less" than="5000cGy" comment="or"></Objective>
+			<Objective type="Dmean" at="" exp="less" than="3500cGy" comment="or"></Objective>
+		</Structure>
+		<Structure type="Organ" name="Lens L">
+			<Objective type="V" at="1000cGy" exp="less" than="1%" comment=""></Objective>
+		</Structure>
+		<Structure type="Organ" name="Lens R">
+			<Objective type="V" at="1000cGy" exp="less" than="1%" comment=""></Objective>
+		</Structure>
+	</Protocol>
+</root>

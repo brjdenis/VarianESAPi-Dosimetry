@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<ClinicalProtocol name="Quantec">
+		<Protocol>Default</Protocol>
+	</ClinicalProtocol>
+	<ClinicalProtocol name="Lung">
+		<Protocol>Default</Protocol>
+		<Protocol>SBRT (1 fr.)</Protocol>
+		<Protocol>SBRT (3 fr.)</Protocol>
+	</ClinicalProtocol>
+	<ClinicalProtocol name="HeadAndNeck">
+		<Protocol>Default</Protocol>
+	</ClinicalProtocol>
+</root>

@@ -1,0 +1,21 @@
+# Folders to ignore
+.vs/*
+Dosimetry/Compiled/*
+Dosimetry/.vs/*
+CreateDatabase/.vs/*
+CreateDatabase/bin/*
+CreateDatabase/obj/*
+Dosimetry/bin/*
+Dosimetry/obj/*
+Dosimetry/HelpNDoc/*
+Dosimetry/packages/*
+
+#Files to ignore
+*.pdb
+VMS.TPS.Common.Model.API.dll
+VMS.TPS.Common.Model.API.xml
+VMS.TPS.Common.Model.Types.dll
+VMS.TPS.Common.Model.Types.xml
+CreateDatabase/Compiled/database.db
+Dosimetry_Help.chm
+*.p7s

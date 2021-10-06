@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+	<Structure name="Brain" alphabeta="3">
+		<Alias>brain</Alias>
+	</Structure>
+	<Structure name="Brainstem" alphabeta="3">
+		<Alias>brain stem</Alias>
+		<Alias>brainstem</Alias>
+	</Structure>
+	<Structure name="Chiasm" alphabeta="3">
+		<Alias>chiasm</Alias>
+		<Alias>chiasma</Alias>
+	</Structure>
+	<Structure name="Optic nerve" alphabeta="3">
+		<Alias>optic nerve</Alias>
+	</Structure>
+	<Structure name="Optic nerve L" alphabeta="3">
+		<Alias>optic nerve L</Alias>
+	</Structure>
+	<Structure name="Optic nerve R" alphabeta="3">
+		<Alias>optic nerve R</Alias>
+	</Structure>
+	<Structure name="Eye L" alphabeta="3">
+		<Alias>eye L</Alias>
+	</Structure>
+	<Structure name="Eye R" alphabeta="3">
+		<Alias>eye R</Alias>
+	</Structure>
+	<Structure name="Lens L" alphabeta="3">
+		<Alias>lens L</Alias>
+	</Structure>
+	<Structure name="Lens R" alphabeta="3">
+		<Alias>lens R</Alias>
+	</Structure>
+	<Structure name="Spinal cord" alphabeta="2">
+		<Alias>spinal cord</Alias>
+		<Alias>medulla</Alias>
+	</Structure>
+	<Structure name="Spinal cord PRV" alphabeta="2">
+		<Alias>spinal cord PRV</Alias>
+		<Alias>medula PRV</Alias>
+		<Alias>medulla PORV</Alias>
+	</Structure>
+	<Structure name="Cohlea" alphabeta="3">
+		<Alias>cohlea</Alias>
+	</Structure>
+	<Structure name="Parotid L" alphabeta="3">
+		<Alias>parotid L</Alias>
+	</Structure>
+	<Structure name="Parotid R" alphabeta="3">
+		<Alias>parotid R</Alias>
+	</Structure>
+	<Structure name="Larynx" alphabeta="3">
+		<Alias>larynx</Alias>
+	</Structure>
+	<Structure name="Pharynx" alphabeta="3">
+		<Alias>Pharynx</Alias>
+	</Structure>
+	<Structure name="Lungs" alphabeta="3">
+		<Alias>lungs</Alias>
+	</Structure>
+	<Structure name="Lungs-PTV" alphabeta="3">
+		<Alias>lungs-ptv</Alias>
+		<Alias>lungs - ptv</Alias>
+	</Structure>
+	<Structure name="Lung L" alphabeta="3">
+		<Alias>lung L</Alias>
+	</Structure>
+	<Structure name="Lung R" alphabeta="3">
+		<Alias>lung R</Alias>
+	</Structure>
+	<Structure name="Brachial plexus" alphabeta="3">
+		<Alias>BrachialPlexus</Alias>
+		<Alias>Brachial plexus</Alias>
+	</Structure>
+	<Structure name="Esophagus" alphabeta="3">
+		<Alias>Esophagus</Alias>
+	</Structure>
+	<Structure name="Oral cavity" alphabeta="3">
+		<Alias>Oral cavity</Alias>
+	</Structure>
+	<Structure name="Lip" alphabeta="3">
+		<Alias>lip</Alias>
+		<Alias>lips</Alias>
+	</Structure>
+	<Structure name="Heart" alphabeta="3">
+		<Alias>heart</Alias>
+	</Structure>
+	<Structure name="Liver" alphabeta="3">
+		<Alias>liver</Alias>
+	</Structure>
+	<Structure name="Kidneys" alphabeta="3">
+		<Alias>kidneys</Alias>
+	</Structure>
+	<Structure name="Kidney" alphabeta="3">
+		<Alias>kidney</Alias>
+	</Structure>
+	<Structure name="Kidney L" alphabeta="3">
+		<Alias>kidney L</Alias>
+	</Structure>
+	<Structure name="Kidney R" alphabeta="3">
+		<Alias>kidney R</Alias>
+	</Structure>
+	<Structure name="Stomach" alphabeta="3">
+		<Alias>stomach</Alias>
+	</Structure>
+	<Structure name="Small bowel" alphabeta="3">
+		<Alias>Small bowel</Alias>
+		<Alias>Small intestine</Alias>
+	</Structure>
+	<Structure name="Rectum" alphabeta="3">
+		<Alias>Rectum</Alias>
+	</Structure>
+	<Structure name="Bladder" alphabeta="3">
+		<Alias>bladder</Alias>
+	</Structure>
+	<Structure name="Penile bulb" alphabeta="3">
+		<Alias>penile bulb</Alias>
+		<Alias>bulbus</Alias>
+	</Structure>
+	<Structure name="Ribs" alphabeta="3">
+		<Alias>ribs</Alias>
+	</Structure>
+	<Structure name="Trachea bronchi" alphabeta="3">
+		<Alias>trachea bronchi</Alias>
+		<Alias>Trachea_Bronchi</Alias>
+	</Structure>
+	<Structure name="Great vessels" alphabeta="3">
+		<Alias>Great vessels</Alias>
+		<Alias>greatvessels</Alias>
+	</Structure>
+	<Structure name="Skin" alphabeta="3">
+		<Alias>skinSBRT</Alias>
+	</Structure>
+	<Structure name="Whole body" alphabeta="3">
+		<Alias>BODY</Alias>
+	</Structure>
+</root>

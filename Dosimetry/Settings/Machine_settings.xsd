@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="Root">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element maxOccurs="unbounded" name="Machine">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="MachineID" type="xs:string" />
+							<xs:element maxOccurs="unbounded" name="MachineTolerance" type="xs:string" />
+							<xs:element maxOccurs="unbounded" name="CouchName" type="xs:string" />
+							<xs:element maxOccurs="unbounded" name="Energy">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="EnergyID" type="xs:string" />
+										<xs:element maxOccurs="unbounded" name="Technique">
+											<xs:complexType>
+												<xs:sequence>
+													<xs:element name="TechniqueType" type="xs:string" />
+													<xs:element name="Algorithms">
+														<xs:complexType>
+															<xs:sequence>
+																<xs:element maxOccurs="unbounded" name="VolumeDose" type="xs:string" />
+																<xs:element minOccurs="0" maxOccurs="unbounded" name="Optimization" type="xs:string" />
+																<xs:element minOccurs="0" name="PortalDose" type="xs:string" />
+															</xs:sequence>
+														</xs:complexType>
+													</xs:element>
+													<xs:element name="DoseRate" type="xs:unsignedShort" />
+												</xs:sequence>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>
