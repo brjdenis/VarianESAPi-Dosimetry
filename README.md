@@ -132,9 +132,11 @@ Well, try it out. Here are a couple of examples of proper usage.
 
 1. When dose is entered in relative terms, the following applies: for organs, 100% is equal to the dose that you enter into the Normalization box above the table. For targets it is equal to the Total dose.
 2. DVH is calculated with 0.1 unit precision (cGy or %).
-3. If the ID of the patient changes in Aria, then you have to change it in Dosimetry database as well, otherwise the saved tables will not be read. You can change the ID by clicking the **SQL** button in Special dosimetry.
-4. The button **Add objectives** adds optimization objectives to the treatment plan by reading the tables for organs and targets.
-5. The button **Create plan** offers the following options:
+3. Dosimetry is not compatible with Gy as the unit for dose in Eclipse.
+4. Evaluation is returned in the same unit as *than*.
+5. If the ID of the patient changes in Aria, then you have to change it in Dosimetry database as well, otherwise the saved tables will not be read. You can change the ID by clicking the **SQL** button in Special dosimetry.
+6. The button **Add objectives** adds optimization objectives to the treatment plan by reading the tables for organs and targets.
+7. The button **Create plan** offers the following options:
 	* Duplicate structure set
 	* Delete empty structures in the duplicate
 	* Add a bolus like structure over PTV (useful for head and neck cases). The BODY structure is than extended over this virtual bolus.
