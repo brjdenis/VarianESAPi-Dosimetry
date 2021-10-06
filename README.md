@@ -17,7 +17,7 @@ The script was developed for Eclipse version 15.6. It may not work with other ve
 1. You will need to restore NuGet package for compilation: System.Data.SQLite.Core. Right click the solution -> Restore NuGet packages.
 2. Don't forget the references to Varian dlls.
 3. Compile as Release for x64.
-4. Create a SQLite database file. Edit the path to it in 'Exchange_path.db'.
+4. Create a SQLite database file. Add the path to it in 'Exchange_path.csv'. This file should only contain one line.
 5. In Eclipse you will have to approve the script because it is write-enabled.
 
 
